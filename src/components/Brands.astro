@@ -1,0 +1,59 @@
+---
+const brands = ["BCP", "BBVA", "Interbank", "Scotiabank", "Yape"];
+---
+
+<section class="brands">
+  <div class="container">
+    <p class="brands-label">Compatible con los principales bancos del Perú</p>
+    <div class="brands-row">
+      {brands.map(brand => (
+        <div class="brand-item">
+          <span class="brand-name">{brand}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .brands {
+    padding: 48px 0;
+    border-top: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+    background: var(--bg);
+  }
+
+  .brands-label {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 28px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .brands-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .brand-item {
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+  }
+
+  .brand-item:hover {
+    opacity: 0.8;
+  }
+
+  .brand-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 1px;
+  }
+</style>

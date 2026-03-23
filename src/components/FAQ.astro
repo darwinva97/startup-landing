@@ -1,0 +1,100 @@
+---
+const faqs = [
+  { q: "¿Es seguro conectar mis cuentas bancarias?", a: "Sí. Utilizamos encriptación de nivel bancario (256-bit SSL) y nunca almacenamos tus credenciales. Nos conectamos a tu banco a través de APIs seguras y certificadas. Estamos regulados por la SBS." },
+  { q: "¿Cómo se conecta WalletPe a mi banco?", a: "Usamos conexiones seguras API con los principales bancos del Perú (BCP, BBVA, Interbank, Scotiabank). Solo necesitas vincular tu cuenta una vez y la sincronización es automática." },
+  { q: "¿Cuánto cuesta usar WalletPe?", a: "WalletPe es gratis para funciones básicas como control de gastos, 1 cuenta bancaria y metas de ahorro. El plan Premium cuesta S/ 9.90/mes e incluye cuentas ilimitadas, inversiones y alertas con IA." },
+  { q: "¿Puedo invertir con poco dinero?", a: "¡Sí! Con el plan Premium puedes empezar a invertir desde S/ 10 en fondos diversificados. Sin montos mínimos altos ni comisiones ocultas." },
+  { q: "¿Qué pasa con mis datos personales?", a: "Tus datos son tuyos. Nunca vendemos ni compartimos tu información con terceros. Cumplimos con la Ley de Protección de Datos Personales del Perú y estándares internacionales." },
+  { q: "¿Puedo cancelar mi suscripción Premium en cualquier momento?", a: "Sí, puedes cancelar cuando quieras sin penalidades. Tu cuenta volverá al plan gratuito al final del período de facturación." },
+];
+---
+
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 64px;">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Preguntas <span class="gradient-text">frecuentes</span></h2>
+      <p class="section-subtitle mx-auto">Todo lo que necesitas saber sobre WalletPe.</p>
+    </div>
+
+    <div class="faq-list">
+      {faqs.map(faq => (
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>{faq.q}</span>
+            <span class="faq-chevron">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </span>
+          </summary>
+          <div class="faq-answer">
+            <p>{faq.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: #fff;
+    border: 1px solid #f1f5f9;
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    border-color: #e2e8f0;
+  }
+
+  .faq-item[open] {
+    box-shadow: var(--shadow);
+    border-color: rgba(129, 140, 248, 0.3);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--primary);
+    list-style: none;
+    gap: 16px;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    color: var(--text-light);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 24px 20px;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+</style>

@@ -1,0 +1,149 @@
+---
+const testimonials = [
+  {
+    name: "María Fernández",
+    role: "Diseñadora, Lima",
+    text: "Logré ahorrar S/ 5,000 en 6 meses sin darme cuenta. El ahorro automático es increíble. Ahora estoy invirtiendo mis ahorros.",
+    stars: 5,
+    avatar: "MF"
+  },
+  {
+    name: "Carlos Quispe",
+    role: "Ingeniero, Arequipa",
+    text: "Por fin puedo ver todas mis cuentas en un solo lugar. Antes perdía el control, ahora sé exactamente a dónde va cada sol.",
+    stars: 5,
+    avatar: "CQ"
+  },
+  {
+    name: "Ana Lucía Torres",
+    role: "Emprendedora, Cusco",
+    text: "Las alertas de gastos me salvaron. Me notificó un cobro duplicado que no había visto. Recuperé S/ 350 gracias a WalletPe.",
+    stars: 5,
+    avatar: "AT"
+  },
+];
+---
+
+<section class="section" id="testimonios">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 64px;">
+      <span class="section-label">Testimonios</span>
+      <h2 class="section-title">Lo que dicen <span class="gradient-text">nuestros usuarios</span></h2>
+      <p class="section-subtitle mx-auto">Miles de peruanos ya están tomando control de sus finanzas con WalletPe.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      {testimonials.map(t => (
+        <div class="testimonial-card glass-card">
+          <div class="testimonial-stars">
+            {Array.from({length: t.stars}).map(() => (
+              <span class="star">★</span>
+            ))}
+          </div>
+          <p class="testimonial-text">"{t.text}"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" data-initials={t.avatar}>
+              {t.avatar}
+            </div>
+            <div>
+              <div class="testimonial-name">{t.name}</div>
+              <div class="testimonial-role">{t.role}</div>
+            </div>
+          </div>
+          <div class="testimonial-source">
+            <span>Reseña de App Store</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .testimonial-stars {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 16px;
+  }
+
+  .star {
+    color: #fbbf24;
+    font-size: 1.1rem;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+    color: var(--primary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    flex: 1;
+    font-weight: 500;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .testimonial-avatar {
+    width: 44px;
+    height: 44px;
+    background: var(--gradient-1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .testimonial-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--primary);
+  }
+
+  .testimonial-role {
+    font-size: 0.8rem;
+    color: var(--text-light);
+  }
+
+  .testimonial-source {
+    padding-top: 12px;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .testimonial-source span {
+    font-size: 0.75rem;
+    color: var(--text-light);
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

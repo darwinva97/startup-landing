@@ -1,0 +1,241 @@
+---
+const features = [
+  { icon: "🔐", title: "Encriptación 256-bit", desc: "Tus datos viajan con la misma seguridad que usa tu banco." },
+  { icon: "👆", title: "Autenticación biométrica", desc: "Face ID, huella digital o PIN para acceder a tu cuenta." },
+  { icon: "🏛️", title: "Regulado por SBS", desc: "Cumplimos con todas las regulaciones de la Superintendencia de Banca y Seguros." },
+  { icon: "🛡️", title: "Datos protegidos", desc: "Tus datos nunca se venden ni se comparten con terceros." },
+];
+---
+
+<section class="section security" id="seguridad">
+  <div class="container">
+    <div class="security-inner">
+      <div class="security-content">
+        <span class="section-label" style="color: #818cf8;">Seguridad</span>
+        <h2 class="security-title">Tu seguridad es nuestra <span class="gradient-text-2">prioridad #1</span></h2>
+        <p class="security-subtitle">Utilizamos la misma tecnología de seguridad que los principales bancos del mundo para proteger tu información.</p>
+
+        <div class="security-grid">
+          {features.map(f => (
+            <div class="security-card">
+              <div class="security-icon">{f.icon}</div>
+              <div>
+                <h4 class="security-card-title">{f.title}</h4>
+                <p class="security-card-desc">{f.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="security-trust">
+          <div class="trust-badge">
+            <span>🔒</span> SSL Certificado
+          </div>
+          <div class="trust-badge">
+            <span>✓</span> SOC 2 Type II
+          </div>
+          <div class="trust-badge">
+            <span>✓</span> ISO 27001
+          </div>
+        </div>
+      </div>
+
+      <div class="security-visual">
+        <div class="shield-container">
+          <div class="shield-outer">
+            <div class="shield-inner">
+              <div class="shield-icon">🛡️</div>
+              <div class="shield-text">Protegido</div>
+            </div>
+          </div>
+          <div class="shield-ring ring-1"></div>
+          <div class="shield-ring ring-2"></div>
+          <div class="shield-ring ring-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .security {
+    background: var(--primary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .security::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    background: rgba(129, 140, 248, 0.08);
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+
+  .security-inner {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .security-content {
+    flex: 1;
+  }
+
+  .security-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+
+  .security-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 500px;
+  }
+
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+
+  .security-card {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    transition: background 0.3s ease;
+  }
+
+  .security-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .security-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .security-card-title {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .security-card-desc {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .security-trust {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  /* Shield visual */
+  .security-visual {
+    flex-shrink: 0;
+  }
+
+  .shield-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shield-outer {
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, rgba(129,140,248,0.3), rgba(52,211,153,0.3));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    position: relative;
+  }
+
+  .shield-inner {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    box-shadow: 0 0 40px rgba(102, 126, 234, 0.4);
+  }
+
+  .shield-icon {
+    font-size: 2rem;
+  }
+
+  .shield-text {
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  .shield-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(129, 140, 248, 0.15);
+  }
+
+  .ring-1 { width: 180px; height: 180px; top: 50px; left: 50px; }
+  .ring-2 { width: 230px; height: 230px; top: 25px; left: 25px; }
+  .ring-3 { width: 280px; height: 280px; top: 0; left: 0; }
+
+  @media (max-width: 768px) {
+    .security-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .security-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .security-subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .security-trust {
+      justify-content: center;
+    }
+  }
+</style>

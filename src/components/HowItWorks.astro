@@ -1,0 +1,259 @@
+---
+const steps = [
+  {
+    num: "01",
+    title: "Conecta tus cuentas",
+    desc: "Vincula tus cuentas bancarias de BCP, BBVA, Interbank o cualquier otro banco en segundos. Conexión segura y encriptada.",
+    screen: "connect"
+  },
+  {
+    num: "02",
+    title: "Visualiza tus finanzas",
+    desc: "Obtén un dashboard completo con tus ingresos, gastos y ahorros. Gráficos intuitivos que te muestran a dónde va tu dinero.",
+    screen: "dashboard"
+  },
+  {
+    num: "03",
+    title: "Ahorra e invierte",
+    desc: "Configura ahorro automático y empieza a invertir desde S/ 10 en fondos diversificados. Tu dinero trabaja por ti.",
+    screen: "invest"
+  }
+];
+---
+
+<section class="section how-it-works" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 80px;">
+      <span class="section-label">Cómo funciona</span>
+      <h2 class="section-title">Empieza en <span class="gradient-text">3 simples pasos</span></h2>
+      <p class="section-subtitle mx-auto">Sin papeleos, sin filas, sin complicaciones. Todo desde tu celular.</p>
+    </div>
+
+    <div class="steps">
+      {steps.map((step, i) => (
+        <div class={`step-row ${i % 2 === 1 ? 'step-reverse' : ''}`}>
+          <div class="step-content">
+            <span class="step-num">{step.num}</span>
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-desc">{step.desc}</p>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-phone">
+            <div class="phone-mockup phone-mockup-sm">
+              <div class="phone-screen">
+                {step.screen === "connect" && (
+                  <div class="mock-screen">
+                    <div class="mock-title">Conectar banco</div>
+                    <div class="mock-bank"><span>🏦</span> BCP <span class="mock-check">✓</span></div>
+                    <div class="mock-bank"><span>🏦</span> BBVA <span class="mock-pending">...</span></div>
+                    <div class="mock-bank"><span>🏦</span> Interbank <span class="mock-add">+</span></div>
+                    <div class="mock-btn-green">Conectar</div>
+                  </div>
+                )}
+                {step.screen === "dashboard" && (
+                  <div class="mock-screen">
+                    <div class="mock-title">Dashboard</div>
+                    <div class="mock-chart">
+                      <div class="mock-bar" style="height: 40%"></div>
+                      <div class="mock-bar" style="height: 65%"></div>
+                      <div class="mock-bar" style="height: 50%"></div>
+                      <div class="mock-bar mock-bar-active" style="height: 80%"></div>
+                      <div class="mock-bar" style="height: 55%"></div>
+                      <div class="mock-bar" style="height: 70%"></div>
+                    </div>
+                    <div class="mock-stat-row">
+                      <div class="mock-stat-item"><small>Ingresos</small><strong>S/ 4,200</strong></div>
+                      <div class="mock-stat-item"><small>Gastos</small><strong>S/ 2,850</strong></div>
+                    </div>
+                  </div>
+                )}
+                {step.screen === "invest" && (
+                  <div class="mock-screen">
+                    <div class="mock-title">Inversiones</div>
+                    <div class="mock-invest-card">
+                      <div class="mock-fund">Fondo Conservador</div>
+                      <div class="mock-return">+8.2% anual</div>
+                      <div class="mock-invest-bar"><div class="mock-invest-fill"></div></div>
+                    </div>
+                    <div class="mock-invest-card">
+                      <div class="mock-fund">Fondo Crecimiento</div>
+                      <div class="mock-return">+14.5% anual</div>
+                      <div class="mock-invest-bar"><div class="mock-invest-fill fill-2"></div></div>
+                    </div>
+                    <div class="mock-btn-green">Invertir S/ 100</div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .step-row {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .step-reverse {
+    flex-direction: row-reverse;
+  }
+
+  .step-content {
+    flex: 1;
+  }
+
+  .step-num {
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: 900;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+
+  .step-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--primary);
+  }
+
+  .step-desc {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: 420px;
+  }
+
+  .step-phone {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Mock screens */
+  .mock-screen {
+    padding: 44px 14px 14px;
+    height: 100%;
+  }
+
+  .mock-title {
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .mock-bank {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+
+  .mock-check { margin-left: auto; color: var(--accent-2); }
+  .mock-pending { margin-left: auto; color: #fbbf24; }
+  .mock-add { margin-left: auto; color: rgba(255,255,255,0.5); }
+
+  .mock-btn-green {
+    background: var(--accent-2);
+    color: var(--primary);
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-top: 16px;
+  }
+
+  .mock-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 100px;
+    padding: 12px 0;
+  }
+
+  .mock-bar {
+    flex: 1;
+    background: rgba(129, 140, 248, 0.4);
+    border-radius: 4px 4px 0 0;
+  }
+
+  .mock-bar-active {
+    background: var(--accent);
+  }
+
+  .mock-stat-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .mock-stat-item {
+    flex: 1;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .mock-stat-item small { color: rgba(255,255,255,0.6); font-size: 0.55rem; display: block; }
+  .mock-stat-item strong { color: #fff; font-size: 0.75rem; }
+
+  .mock-invest-card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+
+  .mock-fund { color: #fff; font-size: 0.7rem; font-weight: 600; }
+  .mock-return { color: var(--accent-2); font-size: 0.6rem; margin: 4px 0; }
+
+  .mock-invest-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+  }
+
+  .mock-invest-fill {
+    height: 100%;
+    width: 60%;
+    background: var(--accent-2);
+    border-radius: 2px;
+  }
+
+  .fill-2 { width: 40%; background: var(--accent); }
+
+  @media (max-width: 768px) {
+    .step-row, .step-reverse {
+      flex-direction: column;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .step-desc {
+      margin: 0 auto;
+    }
+  }
+</style>

@@ -1,0 +1,214 @@
+---
+const productLinks = ["Características", "Seguridad", "Precios", "Inversiones", "Presupuestos"];
+const companyLinks = ["Sobre nosotros", "Blog", "Carreras", "Prensa", "Partners"];
+const legalLinks = ["Términos de uso", "Privacidad", "Cookies", "Licencias"];
+const supportLinks = ["Centro de ayuda", "Contacto", "Estado del servicio", "Comunidad"];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">
+          <span>💰</span>
+          <span class="footer-logo-text">WalletPe</span>
+        </a>
+        <p class="footer-tagline">Tu dinero, tu control.</p>
+        <p class="footer-desc">La app de finanzas personales más completa del Perú. Controla, ahorra e invierte desde tu celular.</p>
+
+        <div class="footer-stores">
+          <a href="#" class="footer-store-link">📱 App Store</a>
+          <a href="#" class="footer-store-link">📱 Google Play</a>
+        </div>
+
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Instagram">IG</a>
+          <a href="#" class="social-link" aria-label="Facebook">FB</a>
+          <a href="#" class="social-link" aria-label="Twitter">TW</a>
+          <a href="#" class="social-link" aria-label="LinkedIn">LI</a>
+          <a href="#" class="social-link" aria-label="TikTok">TK</a>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Producto</h4>
+        {productLinks.map(link => <a href="#">{link}</a>)}
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Compañía</h4>
+        {companyLinks.map(link => <a href="#">{link}</a>)}
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Legal</h4>
+        {legalLinks.map(link => <a href="#">{link}</a>)}
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Soporte</h4>
+        {supportLinks.map(link => <a href="#">{link}</a>)}
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-regulation">
+        <span>🏛️</span>
+        <span>Regulado por la SBS y el BCRP. Todos los fondos de inversión están supervisados por la SMV.</span>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; 2026 WalletPe. Todos los derechos reservados. Hecho con 💜 en Perú.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--primary);
+    padding: 80px 0 32px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  .footer-logo-text {
+    color: #fff;
+    font-weight: 800;
+  }
+
+  .footer-tagline {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .footer-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 280px;
+  }
+
+  .footer-stores {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .footer-store-link {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 6px 14px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+
+  .footer-store-link:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 8px;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .social-link:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .footer-links-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links-group h4 {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .footer-links-group a {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.2s ease;
+  }
+
+  .footer-links-group a:hover {
+    color: #fff;
+  }
+
+  .footer-bottom {
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-regulation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+
+  .footer-copyright {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
